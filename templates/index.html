@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ResuMate — by Ansh Chawla</title>
+
+  <!-- ✅ FIXED STATIC PATH -->
+
+  <link rel="stylesheet" href="/css/style.css"/>
+
+  <!-- Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Libraries -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<!-- ═══════════════ SCREEN 1: WELCOME ═══════════════ -->
+
+<div id="s-welcome" class="screen active">
+  <div class="welcome-bg">
+    <div class="orb o1"></div>
+    <div class="orb o2"></div>
+    <div class="orb o3"></div>
+    <div class="grid-lines"></div>
+  </div>
+
+  <nav class="w-nav">
+    <div class="w-nav-logo"><span class="logo-hex">⬡</span> ARA</div>
+    <!-- ✅ FIXED -->
+    <div class="w-nav-tag">v2.0 · Smart Resume Engine</div>
+  </nav>
+
+  <div class="w-center">
+    <div class="w-badge"><span class="bdot"></span> Resume Intelligence System</div>
+
+
+<h1 class="w-title">
+  Get Your Resume<br/>
+  <span class="grad">Hired Faster.</span>
+</h1>
+
+<p class="w-sub">
+  Instant ATS scoring, keyword gap analysis, and intelligent feedback — built for job seekers who mean business.
+</p>
+<button onclick="downloadReport()">Download Report</button>
+
+<button class="btn-hero" id="btn-start">
+  <span>Start Analyzing</span>
+</button>
+
+<p class="w-note">Fast · No API · Instant results</p>
+
+<div class="w-stats">
+  <div class="stat">
+    <div class="stat-n">98%</div>
+    <div class="stat-l">ATS Accuracy</div>
+  </div>
+  <div class="sdiv"></div>
+  <div class="stat">
+    <div class="stat-n">50+</div>
+    <div class="stat-l">Role Types</div>
+  </div>
+  <div class="sdiv"></div>
+  <div class="stat">
+    <div class="stat-n">&lt;5s</div>
+    <div class="stat-l">Analysis Time</div>
+  </div>
+</div>
+
+
+  </div>
+
+  <footer class="w-footer">
+    Crafted with ♥ by <strong>Ansh Chawla</strong>
+  </footer>
+</div>
+
+<!-- ═══════════════ SCREEN 2: MAIN ═══════════════ -->
+
+<div id="s-main" class="screen">
+
+  <header class="a-header">
+    <div class="ah-left">
+      <button class="ico-btn" id="btn-back-main">←</button>
+      <div class="a-brand"><span class="logo-hex">⬡</span> ResuMate</div>
+    </div>
+  </header>
+
+  <div class="main-grid">
+
+
+<!-- LEFT -->
+<div class="m-left">
+
+  <!-- Upload -->
+  <section class="sec-card">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <div>
+        <h2 class="sec-title">Upload Resume</h2>
+        <p class="sec-sub">PDF or DOCX · Max 10MB</p>
+      </div>
+    </div>
+
+    <input type="file" id="file-input" accept=".pdf,.docx"/>
+  </section>
+
+  <!-- Job Description -->
+  <section class="sec-card">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <div>
+        <h2 class="sec-title">Job Description</h2>
+        <p class="sec-sub">Paste JD or describe role</p>
+      </div>
+    </div>
+
+    <textarea id="jd-area" class="jd-area" placeholder="Paste job description here..."></textarea>
+  </section>
+
+  <!-- Analyze Button -->
+  <button class="analyze-btn" id="analyze-btn">
+    Analyze Resume
+  </button>
+
+</div>
+
+<!-- RIGHT -->
+<div class="m-right">
+
+  <div class="tip-card">
+    <h3 class="tip-title">💡 Tips for Best Results</h3>
+    <ul class="tip-list">
+      <li>Use actual job description</li>
+      <li>Keep resume text-based</li>
+      <li>Use clear headings</li>
+      <li>Add measurable achievements</li>
+    </ul>
+  </div>
+
+  <div class="tip-card">
+    <h3 class="tip-title">How it Works</h3>
+    <div class="how-steps">
+      <div class="hstep"><span class="hnum">1</span><span>Upload resume</span></div>
+      <div class="hstep"><span class="hnum">2</span><span>Paste job description</span></div>
+      <div class="hstep"><span class="hnum">3</span><span>Analyze instantly</span></div>
+      <div class="hstep"><span class="hnum">4</span><span>Get ATS insights</span></div>
+    </div>
+  </div>
+
+  <div class="powered-row">
+    <span class="pdot"></span> FastAPI · ML Engine · Local Analysis
+  </div>
+
+</div>
+
+
+  </div>
+</div>
+
+<!-- ═══════════════ SCREEN 3: LOADING ═══════════════ -->
+
+<div id="s-loading" class="screen">
+  <div class="load-wrap">
+    <h2 class="load-title">Analyzing your resume...</h2>
+    <p class="load-sub">Processing data with smart analysis engine</p>
+  </div>
+</div>
+
+<!-- ═══════════════ SCREEN 4: RESULTS ═══════════════ -->
+
+<div id="s-results" class="screen">
+
+  <header class="a-header">
+    <button class="ico-btn" id="btn-back-res">←</button>
+    <div class="a-brand">Analysis Report</div>
+  </header>
+
+  <div id="res-layout">
+    <!-- Results will be injected -->
+  </div>
+
+</div>
+
+<!-- Toast -->
+
+<div id="toast" class="toast"></div>
+
+<!-- ✅ FIXED JS PATH -->
+
+<script src="/js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>

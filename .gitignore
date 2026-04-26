@@ -1,0 +1,15 @@
+# Secret credentials - NEVER commit
+.env
+
+# Local Python environment
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Personal notes
+Startup.txt
+
+# OS files
+.DS_Store
+Thumbs.db
