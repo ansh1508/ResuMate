@@ -1,7 +1,7 @@
 from fastapi import APIRouter, UploadFile, File, Form, HTTPException
 from fastapi.responses import JSONResponse
 
-from routers.extractor import extract_text
+from routers.extractor import extract_text_from_bytes
 from routers.engine import analyze_resume
 from db import resumes_collection
 
